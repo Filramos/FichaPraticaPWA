@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perguntas sobre Git</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 10px;
+      }
+
+      h2 {
+        color: #34495e;
+        margin-top: 30px;
+      }
+
+      h3 {
+        color: #555;
+        margin-top: 20px;
+        font-size: 1.1em;
+      }
+
+      p {
+        text-align: justify;
+        margin: 10px 0;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .italic {
+        font-style: italic;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+
+      ol {
+        margin: 15px 0;
+        padding-left: 25px;
+      }
+
+      ul {
+        margin: 15px 0;
+        padding-left: 25px;
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      code {
+        background-color: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        color: #c7254e;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Perguntas sobre Git e Controlo de Versões</h1>
+
+      <div class="section">
+        <h2>
+          1 - O que são operações de "Commit", "Push" e "Pop" efetuadas num
+          repositório?
+        </h2>
+
+        <p>
+          No Git, as operações <span class="bold">Commit</span>,
+          <span class="bold">Push</span> e
+          <span class="bold">Pop</span> correspondem a diferentes momentos do
+          ciclo de gestão de versões de um projeto.
+        </p>
+
+        <h3>Commit:</h3>
+        <p>
+          O <span class="italic">commit</span> é a operação central do Git e
+          representa o registo permanente de um conjunto de alterações no
+          repositório local.
+        </p>
+        <p>
+          Funciona como um
+          <span class="underline">"ponto de restauração"</span> do código,
+          permitindo regressar a um estado anterior sempre que necessário.
+        </p>
+        <p>O processo típico envolve três etapas:</p>
+
+        <ol>
+          <li>Modificar os ficheiros do projeto;</li>
+          <li>
+            Adicionar as alterações à área de preparação com
+            <code>git add</code>;
+          </li>
+          <li>Registar as alterações com <code>git commit</code>.</li>
+        </ol>
+
+        <p>
+          Desta forma, cada commit cria um
+          <span class="bold">instantâneo</span> (<span class="italic"
+            >snapshot</span
+          >) do estado atual do projeto.
+        </p>
+
+        <h3>Push:</h3>
+        <p>
+          Após realizar commits localmente, o comando <code>git push</code> é
+          utilizado para enviar essas alterações para um repositório remoto (por
+          exemplo, no GitHub).
+        </p>
+        <p>
+          Esta operação
+          <span class="underline"
+            >sincroniza o repositório local com o remoto</span
+          >, tornando as modificações acessíveis a outros colaboradores.
+        </p>
+
+        <h3>Pop:</h3>
+        <p>
+          A operação <span class="italic">pop</span> não existe como comando
+          principal do Git; contudo, surge frequentemente associada ao comando
+          <code>git stash pop</code>.
+        </p>
+        <p>
+          O <span class="bold">stash</span> é um mecanismo que permite guardar
+          temporariamente alterações que ainda não se pretende consolidar num
+          commit, possibilitando alternar de branch ou realizar outras tarefas
+          sem perder o trabalho em curso.
+        </p>
+        <p>
+          O <code>git stash pop</code> reaplica essas alterações ao código atual
+          e, simultaneamente, remove-as da pilha de stashes.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>
+          2 – Quais são as vantagens de usar Branches num repositório git?
+        </h2>
+
+        <p>
+          Os <span class="bold">branches</span> são uma funcionalidade
+          fundamental do Git, permitindo a criação de linhas de desenvolvimento
+          independentes dentro de um mesmo projeto.
+        </p>
+
+        <p>As principais vantagens são as seguintes:</p>
+
+        <ul>
+          <li>
+            <span class="bold">Isolamento de alterações:</span> cada branch
+            representa um espaço de trabalho separado, o que evita
+            interferências diretas no código principal (geralmente no
+            <code>main</code> ou <code>master</code>).
+          </li>
+          <li>
+            <span class="bold">Trabalho paralelo:</span> diferentes
+            colaboradores podem desenvolver funcionalidades, realizar correções
+            ou testar novas abordagens em simultâneo, sem conflito entre si.
+          </li>
+          <li>
+            <span class="bold">Facilidade de alternância:</span> a mudança entre
+            branches é rápida, permitindo alternar entre contextos de trabalho
+            distintos.
+          </li>
+          <li>
+            <span class="bold">Segurança e experimentação:</span> é possível
+            testar novas ideias ou funcionalidades sem comprometer a
+            estabilidade do projeto principal.
+          </li>
+          <li>
+            <span class="bold">Organização do fluxo de trabalho:</span> o uso de
+            branches favorece metodologias estruturadas, como o
+            <span class="italic">Git Flow</span>, que define ramos específicos
+            para desenvolvimento (<code>develop</code>), novas funcionalidades
+            (<span class="italic">feature branches</span>) e correções (<span
+              class="italic"
+              >hotfixes</span
+            >).
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>
+          3 – Nos Merges de conteúdos resultantes de um "Pop" podem resultar em
+          conflitos. Em que consistem e como podem ser resolvidos esses
+          conflitos?
+        </h2>
+
+        <p>
+          Quando é executado o comando <code>git stash pop</code>, o Git tenta
+          reaplicar as alterações que foram anteriormente guardadas no stash ao
+          estado atual do código.
+        </p>
+        <p>
+          Um <span class="underline">conflito</span> pode ocorrer quando as
+          mesmas linhas de código foram modificadas tanto no stash como nos
+          ficheiros que estão atualmente no branch.
+        </p>
+
+        <h3>Natureza do conflito:</h3>
+        <p>
+          O Git não consegue decidir automaticamente qual versão do código deve
+          prevalecer — a guardada no stash ou a que já existe no repositório
+          local — e, por isso, marca o ficheiro como
+          <span class="bold italic">"em conflito"</span>.
+        </p>
+
+        <h3>Resolução de conflitos:</h3>
+        <ol>
+          <li>
+            O Git insere marcadores visuais
+            (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>,
+            <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) nos ficheiros afetados,
+            indicando as partes em conflito.
+          </li>
+          <li>
+            O programador deve abrir o ficheiro e analisar as diferenças,
+            decidindo qual versão manter (ou fundindo ambas, se necessário).
+          </li>
+          <li>
+            Após resolver manualmente o conflito, é necessário guardar o
+            ficheiro e executá-lo com
+            <code>git add &lt;nome-do-ficheiro&gt;</code> para marcar o problema
+            como resolvido.
+          </li>
+        </ol>
+
+        <p>
+          Depois de concluído este processo, o <code>git stash pop</code> é
+          finalizado e o trabalho pode prosseguir normalmente.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>
+          4 – "Clone" e "Fork" são formas diferentes de replicar um repositório
+          Git. Quais as diferenças entre eles?
+        </h2>
+
+        <p>
+          Apesar de ambos permitirem replicar um repositório,
+          <span class="bold">clone</span> e <span class="bold">fork</span> têm
+          propósitos e contextos distintos.
+        </p>
+
+        <h3>Clone:</h3>
+        <p>
+          O comando <code>git clone &lt;url&gt;</code> cria uma cópia integral
+          de um repositório remoto no computador local do utilizador.
+        </p>
+        <p>
+          Esta operação copia todo o histórico de versões e mantém uma ligação
+          direta ao repositório original (denominado
+          <span class="italic">origin</span>), permitindo receber atualizações
+          (<code>git pull</code>) ou enviar alterações (<code>git push</code>),
+          caso o utilizador tenha permissões de escrita.
+        </p>
+
+        <h3>Fork:</h3>
+        <p>
+          O <span class="italic">fork</span> é uma funcionalidade oferecida por
+          plataformas de alojamento como o GitHub, e não um comando interno do
+          Git.
+        </p>
+        <p>
+          Consiste na criação de uma cópia do repositório de outro utilizador na
+          conta pessoal do programador.
+        </p>
+        <p>
+          É uma prática comum em projetos de
+          <span class="underline">código aberto</span> (<span class="italic"
+            >open source</span
+          >), onde o fluxo de trabalho típico é o seguinte:
+        </p>
+
+        <ol>
+          <li>
+            Efetuar <span class="italic">fork</span> do repositório original
+            para a conta pessoal;
+          </li>
+          <li>
+            Clonar o <span class="italic">fork</span> localmente com
+            <code>git clone</code>;
+          </li>
+          <li>Implementar as alterações desejadas;</li>
+          <li>
+            Enviar as alterações para o <span class="italic">fork</span> remoto
+            e, posteriormente, propor a integração com o projeto original
+            através de um <span class="bold">Pull Request</span>.
+          </li>
+        </ol>
+
+        <p>
+          Assim, enquanto o <span class="italic">clone</span> é uma cópia local
+          de um repositório remoto, o
+          <span class="italic">fork</span> representa uma cópia remota
+          independente criada no servidor.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
