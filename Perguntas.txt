@@ -1,4 +1,27 @@
 1 - O que são operações de “Commit”, “Push” e “Pop” efetuadas num repositório?
+No Git, as operações Commit, Push e Pop correspondem a diferentes momentos do ciclo de gestão de versões de um projeto.
+
+Commit:
+O commit é a operação central do Git e representa o registo permanente de um conjunto de alterações no repositório local.
+Funciona como um “ponto de restauração” do código, permitindo regressar a um estado anterior sempre que necessário.
+O processo típico envolve três etapas:
+
+Modificar os ficheiros do projeto;
+
+Adicionar as alterações à área de preparação com git add;
+
+Registar as alterações com git commit.
+Desta forma, cada commit cria um instantâneo (snapshot) do estado atual do projeto.
+
+Push:
+Após realizar commits localmente, o comando git push é utilizado para enviar essas alterações para um repositório remoto (por exemplo, no GitHub).
+Esta operação sincroniza o repositório local com o remoto, tornando as modificações acessíveis a outros colaboradores.
+
+Pop:
+A operação pop não existe como comando principal do Git; contudo, surge frequentemente associada ao comando git stash pop.
+O stash é um mecanismo que permite guardar temporariamente alterações que ainda não se pretende consolidar num commit, possibilitando alternar de branch ou realizar outras tarefas sem perder o trabalho em curso.
+O git stash pop reaplica essas alterações ao código atual e, simultaneamente, remove-as da pilha de stashes.
+
 2 – Quais sáo as vantagens de usar Branchs num repositório git?
 3 – Nos Merges de conteúdos resultantes de um “Pop” podem resultar em conflitos. Em
 que consistem e como podem ser resolvidos esses conflitos?
