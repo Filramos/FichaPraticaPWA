@@ -56,3 +56,23 @@ Depois de concluído este processo, o stash pop é finalizado e o trabalho pode 
 
 4 – “Clone” e “Fork” são formas diferentes de replicar um repositório Git. Quais as
 diferenças entre eles?
+Apesar de ambos permitirem replicar um repositório, clone e fork têm propósitos e contextos distintos.
+
+Clone:
+O comando git clone <url> cria uma cópia integral de um repositório remoto no computador local do utilizador.
+Esta operação copia todo o histórico de versões e mantém uma ligação direta ao repositório original (denominado origin), permitindo receber atualizações (git pull) ou enviar alterações (git push), caso o utilizador tenha permissões de escrita.
+
+Fork:
+O fork é uma funcionalidade oferecida por plataformas de alojamento como o GitHub, e não um comando interno do Git.
+Consiste na criação de uma cópia do repositório de outro utilizador na conta pessoal do programador.
+É uma prática comum em projetos de código aberto (open source), onde o fluxo de trabalho típico é o seguinte:
+
+Efetuar fork do repositório original para a conta pessoal;
+
+Clonar o fork localmente com git clone;
+
+Implementar as alterações desejadas;
+
+Enviar as alterações para o fork remoto e, posteriormente, propor a integração com o projeto original através de um Pull Request.
+
+Assim, enquanto o clone é uma cópia local de um repositório remoto, o fork representa uma cópia remota independente criada no servidor.
