@@ -23,6 +23,20 @@ O stash é um mecanismo que permite guardar temporariamente alterações que ain
 O git stash pop reaplica essas alterações ao código atual e, simultaneamente, remove-as da pilha de stashes.
 
 2 – Quais sáo as vantagens de usar Branchs num repositório git?
+Os branches são uma funcionalidade fundamental do Git, permitindo a criação de linhas de desenvolvimento independentes dentro de um mesmo projeto.
+
+As principais vantagens são as seguintes:
+
+Isolamento de alterações: cada branch representa um espaço de trabalho separado, o que evita interferências diretas no código principal (geralmente no main ou master).
+
+Trabalho paralelo: diferentes colaboradores podem desenvolver funcionalidades, realizar correções ou testar novas abordagens em simultâneo, sem conflito entre si.
+
+Facilidade de alternância: a mudança entre branches é rápida, permitindo alternar entre contextos de trabalho distintos.
+
+Segurança e experimentação: é possível testar novas ideias ou funcionalidades sem comprometer a estabilidade do projeto principal.
+
+Organização do fluxo de trabalho: o uso de branches favorece metodologias estruturadas, como o Git Flow, que define ramos específicos para desenvolvimento (develop), novas funcionalidades (feature branches) e correções (hotfixes).
+
 3 – Nos Merges de conteúdos resultantes de um “Pop” podem resultar em conflitos. Em
 que consistem e como podem ser resolvidos esses conflitos?
 4 – “Clone” e “Fork” são formas diferentes de replicar um repositório Git. Quais as
