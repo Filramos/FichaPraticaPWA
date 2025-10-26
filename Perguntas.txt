@@ -39,5 +39,20 @@ Organização do fluxo de trabalho: o uso de branches favorece metodologias estr
 
 3 – Nos Merges de conteúdos resultantes de um “Pop” podem resultar em conflitos. Em
 que consistem e como podem ser resolvidos esses conflitos?
+Quando é executado o comando git stash pop, o Git tenta reaplicar as alterações que foram anteriormente guardadas no stash ao estado atual do código.
+Um conflito pode ocorrer quando as mesmas linhas de código foram modificadas tanto no stash como nos ficheiros que estão atualmente no branch.
+
+Natureza do conflito:
+O Git não consegue decidir automaticamente qual versão do código deve prevalecer — a guardada no stash ou a que já existe no repositório local — e, por isso, marca o ficheiro como “em conflito”.
+
+Resolução de conflitos:
+
+O Git insere marcadores visuais (<<<<<<<, =======, >>>>>>>) nos ficheiros afetados, indicando as partes em conflito.
+
+O programador deve abrir o ficheiro e analisar as diferenças, decidindo qual versão manter (ou fundindo ambas, se necessário).
+
+Após resolver manualmente o conflito, é necessário guardar o ficheiro e executá-lo com git add <nome-do-ficheiro> para marcar o problema como resolvido.
+Depois de concluído este processo, o stash pop é finalizado e o trabalho pode prosseguir normalmente.
+
 4 – “Clone” e “Fork” são formas diferentes de replicar um repositório Git. Quais as
 diferenças entre eles?
